@@ -1,0 +1,12 @@
+{
+  "name": "vortex-core",
+  "version": "1.0.0",
+  "description": "Vortex-Core Social Communication Platform",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+
