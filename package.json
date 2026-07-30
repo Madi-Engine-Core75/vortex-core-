@@ -1,12 +1,15 @@
 {
   "name": "vortex-core",
   "version": "1.0.0",
-  "description": "Vortex-Core Social Communication Platform",
+  "description": "Vortex-Core Secure decentralized social communication platform integrated with MadiEngineCore.",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "serve": "npx http-server -c-1 ."
   },
+  "keywords": ["social", "decentralized", "madi-engine", "vortex"],
+  "author": "Madi-Engine-Core75",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {}
 }
-
