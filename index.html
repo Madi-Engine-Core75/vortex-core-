@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex-Core | Madi Ecosystem</title>
+  <link rel="stylesheet" href="./assets/css/madi-cyber-theme.css">
+
+  <!-- كود فحص الأداء التكيفي للهواتف الضعيفة -->
+  <script>
+    (function () {
+      const isLowEndDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+      if (isLowEndDevice) {
+        document.documentElement.classList.add('low-end-mode');
+        const style = document.createElement('style');
+        style.innerHTML = `
+          .cyber-card, .madi-tab-bar {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: #12141c !important;
+          }
+        `;
+        document.head.appendChild(style);
+        console.info("[MadiEngineCore] Low-end device detected: Adaptive UI optimization applied.");
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="madi-app-container">
+    <!-- محتوى الواجهة السيبرانية -->
+    <div class="cyber-card">
+      <h2 class="glow-teal">Vortex-Core Node</h2>
+      <p style="color: var(--text-secondary); margin-top: 8px;">النظام يعمل بكفاءة عالية عبر معمارية MadiEngineCore المشفرة.</p>
+    </div>
+  </div>
+
+</body>
+</html>
+
