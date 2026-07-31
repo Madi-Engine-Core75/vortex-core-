@@ -1,5 +1,55 @@
+# Node modules & package caches
 node_modules/
-.env
+.pnpm-debug.log*
+.pnpm-store/          # pnpm cache/store (optional)
+# .npmrc              # uncomment if you want to ignore npm config
+
+# Production builds / artifacts
 dist/
 build/
+out/
+public/build/
+
+# Framework/tool caches
+.cache/
+.parcel-cache/
+.vite/
+.next/
+.nuxt/
+.sass-cache/
+
+# Coverage & test output
+coverage/
+.nyc_output/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Linter / tooling caches
+.eslintcache
+
+# CI / deployment
+.vercel/
+.netlify/
+.firebase/
+.deployment/
+
+# Misc
+*.tgz
+node-repl-history
