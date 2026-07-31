@@ -1,25 +1,38 @@
-// sw.js (في الجذر الرئيسي للمشروع)
-const CACHE_NAME = 'vortex-core-v1';
-const ASSETS = [
-    '/',
-    '/src/index.html',
-    '/assets/css/madi-cyber-theme.css',
-    '/src/adaptive-perf.js',
-    '/src/main.js'
-];
+/* assets/css/madi-cyber-theme.css */
+:root {
+    --bg-deep: #050b0e;
+    --teal-glow: #00f2fe;
+    --teal-dim: rgba(0, 242, 254, 0.15);
+    --border-color: rgba(0, 242, 254, 0.3);
+}
 
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(ASSETS);
-        })
-    );
-});
+body {
+    background-color: var(--bg-deep);
+    color: #e0fbfc;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+}
 
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            return cachedResponse || fetch(event.request);
-        })
-    );
-});
+/* الوضع القياسي للهواتف القوية (Cyber Glassmorphism مع تمويه عميق) */
+body.cyber-glass-mode .vortex-card {
+    background: rgba(5, 11, 14, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px var(--teal-dim);
+}
+
+/* وضع الأداء للهواتف الضعيفة (تأثير سيبراني مسطح بدون استهلاك GPU لمنع الحرارة والتقطيع) */
+body.lite-mode .vortex-card {
+    background: #081419;
+    border: 1px solid var(--teal-glow);
+    box-shadow: none;
+}
+
+.vortex-card {
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    transition: border-color 0.2s ease;
+}
