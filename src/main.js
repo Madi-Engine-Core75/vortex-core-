@@ -1,19 +1,26 @@
-const { generateKey, encrypt, decrypt } = require('./crypto');
+import { neuralEngine } from './neural-engine.js';
 
-console.log("=== Vortex-Core Social Platform Initialized ===");
+console.log("--- Vortex-Core Social Platform Initialized ---");
 
-// 1. توليد مفتاح سري
-const secretKey = generateKey();
-console.log("Generated Key:", secretKey);
+// تشغيل وتفعيل المحرك العصبي في وضع العمل العميق
+neuralEngine.setFocusMode('deep-work');
 
-// 2. رسالة تجريبية
-const originalMessage = "Secret payload: Hello MadiEngineCore!";
-console.log("Original:", originalMessage);
+const activeTopics = [
+  "Optimization of AES-256-GCM Enclaves",
+  "Decentralized Community Consensus Filters",
+  "Cyber Glassmorphism UI Rendering Performance"
+];
 
-// 3. التشفير
-const encryptedPackage = encrypt(originalMessage, secretKey);
-console.log("Encrypted Payload:", encryptedPackage);
+const digest = neuralEngine.generateDigest(activeTopics);
+console.log("Generated Neural Digest:", digest);
 
-// 4. فك التشفير
-const decryptedMessage = decrypt(encryptedPackage, secretKey);
-console.log("Decrypted:", decryptedMessage);
+// حقن النتائج داخل واجهة المستخدم العقدية
+const container = document.getElementById('neural-digest-container');
+if (container) {
+  container.innerHTML = digest.map(item => `
+    <div class="digest-item">
+      <strong>${item.title}</strong>
+      <span class="digest-score">Score: ${item.priorityScore}</span>
+    </div>
+  `).join('');
+}
