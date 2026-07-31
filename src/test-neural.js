@@ -1,16 +1,14 @@
-const { neuralEngine } = require('./neural-engine.js'); // أو قم بتصديرها بـ CommonJS إذا لزم الأمر
+import { neuralEngine } from './neural-engine.js';
 
-console.log("--- Starting Predictive Neural Engine Test ---");
+console.log('Running neural engine self-test...');
 
-// اختبار تغيير وضع التركيز
-neuralEngine.setFocusMode('deep-work');
+neuralEngine.setFocusMode('relaxed');
 
-// اختبار توليد الملخصات المعرفية التنبؤية
-const sampleTopics = [
-  "Optimization of AES-256-GCM Enclaves",
-  "Decentralized Community Consensus Filters",
-  "Cyber Glassmorphism UI Rendering Performance"
-];
+const sample = neuralEngine.generateDigest(['Topic A', 'Topic B', 'Topic C']);
 
-const digest = neuralEngine.generateDigest(sampleTopics);
-console.log("Generated Neural Digest:", digest);
+if (!Array.isArray(sample)) {
+  console.error('Self-test failed: digest is not an array');
+  process.exit(1);
+}
+
+console.log('Self-test passed. Sample digest:', sample);
