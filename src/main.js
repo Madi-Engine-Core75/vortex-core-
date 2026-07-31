@@ -1,13 +1,19 @@
-// Vortex-Core Initial Entry Point
-console.log("Vortex-Core Social Platform Initialized.");
+const { generateKey, encrypt, decrypt } = require('./crypto');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const appContainer = document.getElementById("app") || document.body;
-  
-  // تطبيق واجهة Cyber Glassmorphic مع تدرجات مظلمة ولمسات نيون
-  appContainer.style.background = "#0b0f19";
-  appContainer.style.color = "#00ffcc";
-  appContainer.style.fontFamily = "monospace";
-  
-  console.log("Cyber Glassmorphism theme loaded successfully.");
-});
+console.log("=== Vortex-Core Social Platform Initialized ===");
+
+// 1. توليد مفتاح سري
+const secretKey = generateKey();
+console.log("Generated Key:", secretKey);
+
+// 2. رسالة تجريبية
+const originalMessage = "Secret payload: Hello MadiEngineCore!";
+console.log("Original:", originalMessage);
+
+// 3. التشفير
+const encryptedPackage = encrypt(originalMessage, secretKey);
+console.log("Encrypted Payload:", encryptedPackage);
+
+// 4. فك التشفير
+const decryptedMessage = decrypt(encryptedPackage, secretKey);
+console.log("Decrypted:", decryptedMessage);
