@@ -1,24 +1,28 @@
 /* ==========================================
    MADI ECOSYSTEM - CYBER TEAL GLOBAL THEME
-   Optimized for Low-End Mobile Devices (Termux / PWA)
+   Optimized for Low-End Mobile Devices & PWA
    ========================================== */
 
 :root {
   --bg-deep: #0a0b0e;
-  --bg-glass: rgba(18, 20, 28, 0.75);
+  --bg-glass: rgba(18, 20, 28, 0.85);
+  --bg-glass-hover: rgba(26, 30, 42, 0.95);
   --cyber-teal: #00f2fe;
   --cyber-teal-glow: rgba(0, 242, 254, 0.25);
   --accent-gold: #ffb703;
   --text-primary: #f8f9fa;
   --text-secondary: #94a3b8;
-  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(0, 242, 254, 0.15);
+  --border-glass-active: rgba(0, 242, 254, 0.4);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif;
+  /* منع تحديد النص العشوائي لتحسين تجربة التطبيق المحمول */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -44,116 +48,80 @@ body {
   transform: translateZ(0);
   backface-visibility: hidden;
   padding-bottom: 75px;
+  
+  /* تحسين سلاسة التمرير */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* بطاقات الزجاج السيبراني خفيفة الأداء */
+/* تخصيص شريط التمرير ليكون خفيفاً ومتناسقاً مع الهوية */
+.madi-app-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.madi-app-container::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+.madi-app-container::-webkit-scrollbar-thumb {
+  background: var(--border-glass);
+  border-radius: 4px;
+}
+
+/* بطاقات الزجاج السيبراني (محسنة الأداء مع تفاعلية اللمس) */
 .cyber-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-glass);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 16px;
   margin: 12px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+
+/* تأثير التفاعل الخفيف عند الضغط أو التمرير على البطاقة */
+.cyber-card:active {
+  transform: scale(0.98);
+  background: var(--bg-glass-hover);
+  border-color: var(--border-glass-active);
 }
 
 /* تأثيرات التوهج باللون السيبراني Teal */
 .glow-teal {
   color: var(--cyber-teal);
-  text-shadow: 0 0 10px var(--cyber-teal-glow);
+  text-shadow: 0 0 8px var(--cyber-teal-glow);
 }
 
-/* شريط التنقل السفلي الموحد */
-.madi-tab-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 480px;
-  height: 65px;
-  background: rgba(10, 11, 14, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-top: 1px solid var(--border-glass);
+h3 {
+  color: var(--cyber-teal);
+  border-bottom: 1px solid var(--border-glass);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+/* عناصر ملخص المحرك العصبي */
+.digest-item {
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 3px solid var(--cyber-teal);
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 4px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  z-index: 1000;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-/* ==========================================
-   CYBER NODES & SPACES (VORTEX-CORE)
-   ========================================== */
-
-.cyber-space-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-  min-height: 350px;
+/* تفاعلية خفيفة لعناصر القائمة عند اللمس */
+.digest-item:active {
+  background: rgba(0, 242, 254, 0.05);
+  transform: translateX(-3px);
 }
 
-/* شبكة العقد الدائرية المتصلة */
-.nodes-network {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* العقدة السيبرانية الأساسية والثانوية */
-.cyber-node {
-  position: absolute;
-  width: 85px;
-  height: 85px;
-  background: var(--bg-glass);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 2px solid var(--cyber-teal);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 0 15px var(--cyber-teal-glow);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cyber-node:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px var(--cyber-teal);
-}
-
-/* مواقع العقد المتشعبة */
-.node-main {
-  width: 105px;
-  height: 105px;
-  border-color: var(--accent-gold);
-  box-shadow: 0 0 20px rgba(255, 183, 3, 0.3);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.node-main:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.node-1 { top: 10px; left: 15px; }
-.node-2 { top: 10px; right: 15px; }
-.node-3 { bottom: 10px; left: 50%; transform: translateX(-50%); }
-.node-3:hover { transform: translateX(-50%) scale(1.1); }
-
-.cyber-node span {
-  font-size: 10px;
-  color: var(--text-primary);
-  margin-top: 4px;
+.digest-score {
+  color: var(--accent-gold);
   font-weight: bold;
 }
