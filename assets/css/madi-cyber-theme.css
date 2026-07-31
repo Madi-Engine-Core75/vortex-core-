@@ -1,5 +1,5 @@
 /* ==========================================
-   Madi Cyber Theme - Vortex-Core Edition
+   Madi Cyber Theme - Vortex-Core (Teal Edition)
    ========================================== */
 
 :root {
@@ -7,7 +7,7 @@
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --neon-orange: #ff7700;
-  --neon-green: #00ff88;
+  --cyber-teal: #00f0ff; /* اللون السيبراني الجديد المعتمد */
   --text-primary: #f0f0f3;
   --text-muted: #888892;
 }
@@ -16,7 +16,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', Courier, monospace; /* طابع هندسي تقني */
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
@@ -26,7 +26,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  /* نسيج شبكي رقمي خافت في الخلفية */
   background-image: 
     radial-gradient(var(--glass-border) 1px, transparent 1px),
     radial-gradient(var(--glass-border) 1px, var(--bg-deep) 1px);
@@ -46,11 +45,11 @@ body {
 }
 
 .cyber-logo {
-  color: var(--neon-orange);
+  color: var(--cyber-teal);
   font-weight: bold;
   font-size: 1.2rem;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255, 119, 0, 0.3);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
 /* القسم الأوسط - الغرف المتشعبة (Cyber Nodes) */
@@ -90,19 +89,19 @@ body {
 }
 
 .cyber-node.main {
-  border-color: var(--neon-orange);
-  box-shadow: 0 0 15px rgba(255, 119, 0, 0.15);
+  border-color: var(--cyber-teal);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
 }
 
 .cyber-node.fork {
-  border-color: var(--neon-green);
-  box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 15px rgba(255, 119, 0, 0.1);
   width: 80%;
 }
 
 .cyber-node:hover, .cyber-node.active {
-  border-color: var(--neon-green);
-  box-shadow: 0 0 25px rgba(0, 255, 136, 0.3);
+  border-color: var(--cyber-teal);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
   transform: translateY(-2px);
 }
 
@@ -114,7 +113,7 @@ body {
 
 .node-status {
   font-size: 0.75rem;
-  color: var(--neon-green);
+  color: var(--cyber-teal);
   margin-top: 0.3rem;
 }
 
@@ -132,7 +131,7 @@ body {
 }
 
 .status-dashboard span b {
-  color: var(--neon-green);
+  color: var(--cyber-teal);
 }
 
 /* شريط التنقل السفلي (Cyber Tab Bar) */
@@ -161,7 +160,7 @@ body {
 }
 
 .tab-icon:hover, .tab-icon.active {
-  border-color: var(--neon-green);
-  color: var(--neon-green);
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+  border-color: var(--cyber-teal);
+  color: var(--cyber-teal);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
 }
