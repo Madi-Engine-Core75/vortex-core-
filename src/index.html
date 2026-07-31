@@ -1,54 +1,36 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0b0e">
   <title>Vortex-Core | Cyber Glassmorphism Interface</title>
-  <style>
-    body {
-      background-color: #0b0f0e;
-      color: #e0e0e0;
-      font-family: monospace, sans-serif;
-      padding: 20px;
-    }
-    .cyber-card {
-      background: rgba(18, 26, 23, 0.7);
-      backdrop-filter: blur(10px);
-      border: 1px solid #00ff66;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    h3 {
-      color: #00ff66;
-      border-bottom: 1px solid rgba(0, 255, 102, 0.3);
-      padding-bottom: 10px;
-    }
-    .digest-item {
-      background: rgba(0, 0, 0, 0.3);
-      border-left: 3px solid #00ff66;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 4px;
-    }
-    .digest-score {
-      float: left;
-      color: #ff9900;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/madi-cyber-theme.css">
 </head>
 <body>
 
-  <div class="cyber-card neural-panel">
-    <h3>الدرع العصبي والتنبؤات (Neural Engine)</h3>
-    <div id="neural-digest-container">جاري مزامنة حالة التركيز...</div>
+  <div class="madi-app-container">
+    <header class="cyber-card center" role="banner">
+      <h1 class="kicker">Vortex-Core</h1>
+      <p class="muted">Cyber Glassmorphism Interface — lightweight PWA-ready theme</p>
+      <div style="margin-top:0.5rem; display:flex; gap:0.5rem; justify-content:center">
+        <button id="toggle-low-power" aria-pressed="false" aria-label="Toggle low power mode">Low Power</button>
+        <button id="toggle-high-contrast" aria-pressed="false" aria-label="Toggle high contrast">High Contrast</button>
+      </div>
+    </header>
+
+    <main class="cyber-card neural-panel" role="main">
+      <h3>Neural Shield & Predictions (Neural Engine)</h3>
+      <div id="neural-digest-container" aria-live="polite">Syncing focus state...</div>
+    </main>
+
+    <nav class="madi-tab-bar" role="navigation" aria-label="Primary">
+      <a href="#" aria-label="Home" title="Home">Home</a>
+      <a href="#" aria-label="Nodes" title="Nodes">Nodes</a>
+      <a href="#" aria-label="Settings" title="Settings">Settings</a>
+    </nav>
   </div>
 
-  <!-- ربط السكربت الرئيسي -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
-
