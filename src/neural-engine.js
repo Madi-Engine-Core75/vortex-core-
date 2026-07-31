@@ -5,7 +5,7 @@
 
 class NeuralEngagementEngine {
   constructor() {
-    this.userFocusState = "balanced"; // options: 'deep-work', 'relaxed', 'balanced'
+    this.userFocusState = "balanced"; // الخيارات المتاحة: 'deep-work', 'relaxed', 'balanced'
     this.activeTriggers = [];
   }
 
@@ -35,4 +35,3 @@ class NeuralEngagementEngine {
 
 // تصدير الوحدة للاستخدام في النظام
 export const neuralEngine = new NeuralEngagementEngine();
-
