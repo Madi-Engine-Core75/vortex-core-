@@ -1,70 +1,73 @@
-import { neuralEngine } from './neural-engine.js';
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex-Core | Cyber Matrix</title>
+  <!-- ربط ملف التنسيقات السيبرانية بالمسار الصحيح -->
+  <link rel="stylesheet" href="../assets/css/madi-cyber-theme.css">
+  <!-- ربط ملف فحص الأداء التكيفي للهواتف الضعيفة -->
+  <script src="./adaptive-perf.js" defer></script>
+</head>
+<body>
 
-console.log('--- Vortex-Core Social Platform Initialized ---');
+  <!-- الشريط العلوي -->
+  <header class="cyber-header">
+    <div class="cyber-logo">VORTEX-CORE</div>
+    <div class="cyber-actions" style="color: var(--teal-glow, #00f2fe); font-size: 0.8rem;">SECURE_NODE // ACTIVE</div>
+  </header>
 
-// Initialize neural engine in deep-work mode by default
-neuralEngine.setFocusMode('deep-work');
-
-const activeTopics = [
-  'Optimization of AES-256-GCM Enclaves',
-  'Decentralized Community Consensus Filters',
-  'Cyber Glassmorphism UI Rendering Performance',
-];
-
-const digest = neuralEngine.generateDigest(activeTopics);
-console.log('Generated Neural Digest:', digest);
-
-// Inject results into the UI in an accessible structure
-const container = document.getElementById('neural-digest-container');
-if (container) {
-  container.innerHTML = digest
-    .map(
-      (item) => `
-    <div class="digest-item" role="article" aria-label="Digest item: ${item.title}">
-      <div>
-        <strong>${item.title}</strong>
-        <div class="muted" style="font-size:0.85rem">${new Date(item.timestamp).toLocaleString()}</div>
+  <!-- القسم الأوسط: الغرف المتشعبة والعقد -->
+  <main class="cyber-workspace">
+    <div class="nodes-container">
+      
+      <!-- العقدة الرئيسية -->
+      <div class="cyber-node main active vortex-card">
+        <div class="node-title">Main R&D Discussion</div>
+        <div class="node-status">● Live Stream Open</div>
       </div>
-      <div class="digest-score" aria-hidden="true">Score: ${item.priorityScore}</div>
+
+      <!-- العقد المتفرعة -->
+      <div class="cyber-node fork vortex-card">
+        <div class="node-title">AI-Agent Fork</div>
+        <div class="node-status">Encrypted Enclave</div>
+      </div>
+
+      <div class="cyber-node fork vortex-card">
+        <div class="node-title">Neuro-Core Split</div>
+        <div class="node-status">Synchronized</div>
+      </div>
+
     </div>
-  `
-    )
-    .join('');
-}
 
-// Theme toggles (low-power / high-contrast) — keep lightweight and optional
-const lowPowerBtn = document.getElementById('toggle-low-power');
-const highContrastBtn = document.getElementById('toggle-high-contrast');
+    <!-- حاوية الملخص العصبي (مطلوبة لحقن بيانات main.js) -->
+    <section id="neural-digest-container" class="vortex-card" style="margin: 15px; padding: 10px;">
+      <!-- سيتم حقن الملخصات هنا برمجياً -->
+    </section>
 
-function setBodyClass(cls, enabled) {
-  const body = document.body;
-  if (enabled) body.classList.add(cls);
-  else body.classList.remove(cls);
-}
+    <!-- لوحة المؤشرات الحية -->
+    <div class="status-dashboard" style="padding: 10px; font-size: 0.9rem;">
+      <span>Community Immunity: <b>Active (Lvl 5)</b></span> | 
+      <span>Encryption: <b>AES-256-GCM</b></span>
+    </div>
+  </main>
 
-if (lowPowerBtn) {
-  const saved = localStorage.getItem('madi_low_power') === '1';
-  setBodyClass('low-power', saved);
-  lowPowerBtn.setAttribute('aria-pressed', saved ? 'true' : 'false');
-  lowPowerBtn.addEventListener('click', () => {
-    const isOn = document.body.classList.toggle('low-power');
-    localStorage.setItem('madi_low_power', isOn ? '1' : '0');
-    lowPowerBtn.setAttribute('aria-pressed', isOn ? 'true' : 'false');
-  });
-}
+  <!-- أزرار تبديل الوضع (اختياري يدوي خفيف) -->
+  <div style="padding: 10px; text-align: center;">
+    <button id="toggle-low-power" style="background:#081419; color:#00f2fe; border:1px solid #00f2fe; padding:5px 10px; border-radius:4px; cursor:pointer;">Low Power Mode</button>
+    <button id="toggle-high-contrast" style="background:#081419; color:#00f2fe; border:1px solid #00f2fe; padding:5px 10px; border-radius:4px; cursor:pointer; margin-left:5px;">High Contrast</button>
+  </div>
 
-if (highContrastBtn) {
-  const saved = localStorage.getItem('madi_high_contrast') === '1';
-  setBodyClass('high-contrast', saved);
-  highContrastBtn.setAttribute('aria-pressed', saved ? 'true' : 'false');
-  highContrastBtn.addEventListener('click', () => {
-    const isOn = document.body.classList.toggle('high-contrast');
-    localStorage.setItem('madi_high_contrast', isOn ? '1' : '0');
-    highContrastBtn.setAttribute('aria-pressed', isOn ? 'true' : 'false');
-  });
-}
+  <!-- شريط التنقل السفلي -->
+  <nav class="cyber-tab-bar">
+    <div class="tab-icon active" title="Communities">◈</div>
+    <div class="tab-icon" title="Private Encrypted Chats">☲</div>
+    <div class="tab-icon" title="Live Spaces">⬡</div>
+    <div class="tab-icon" title="Reputation Score">⟡</div>
+    <div class="tab-icon" title="Profile">⊙</div>
+  </nav>
 
-// Respect prefers-reduced-motion for in-page animations
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.documentElement.classList.add('reduced-motion');
-}
+  <!-- استدعاء المنطق البرمجي الأساسي بصيغة موديول -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
