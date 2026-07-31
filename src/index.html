@@ -3,34 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a0b0e">
-  <title>Vortex-Core | Cyber Glassmorphism Interface</title>
-  <link rel="stylesheet" href="../assets/css/madi-cyber-theme.css">
+  <title>Vortex-Core | Cyber Matrix</title>
+  <link rel="stylesheet" href="madi-cyber-theme.css">
 </head>
 <body>
 
-  <div class="madi-app-container">
-    <header class="cyber-card center" role="banner">
-      <h1 class="kicker">Vortex-Core</h1>
-      <p class="muted">Cyber Glassmorphism Interface — lightweight PWA-ready theme</p>
-      <div style="margin-top:0.5rem; display:flex; gap:0.5rem; justify-content:center">
-        <button id="toggle-low-power" aria-pressed="false" aria-label="Toggle low power mode">Low Power</button>
-        <button id="toggle-high-contrast" aria-pressed="false" aria-label="Toggle high contrast">High Contrast</button>
+  <!-- الشريط العلوي -->
+  <header class="cyber-header">
+    <div class="cyber-logo">VORTEX-CORE</div>
+    <div class="cyber-actions" style="color: var(--neon-green); font-size: 0.8rem;">SECURE_NODE // ACTIVE</div>
+  </header>
+
+  <!-- القسم الأوسط: الغرف المتشعبة والعقد -->
+  <main class="cyber-workspace">
+    <div class="nodes-container">
+      
+      <!-- العقدة الرئيسية -->
+      <div class="cyber-node main active">
+        <div class="node-title">Main R&D Discussion</div>
+        <div class="node-status">● Live Stream Open</div>
       </div>
-    </header>
 
-    <main class="cyber-card neural-panel" role="main">
-      <h3>Neural Shield & Predictions (Neural Engine)</h3>
-      <div id="neural-digest-container" aria-live="polite">Syncing focus state...</div>
-    </main>
+      <!-- العقد المتفرعة -->
+      <div class="cyber-node fork">
+        <div class="node-title">AI-Agent Fork</div>
+        <div class="node-status">Encrypted Enclave</div>
+      </div>
 
-    <nav class="madi-tab-bar" role="navigation" aria-label="Primary">
-      <a href="#" aria-label="Home" title="Home">Home</a>
-      <a href="#" aria-label="Nodes" title="Nodes">Nodes</a>
-      <a href="#" aria-label="Settings" title="Settings">Settings</a>
-    </nav>
-  </div>
+      <div class="cyber-node fork">
+        <div class="node-title">Neuro-Core Split</div>
+        <div class="node-status">Synchronized</div>
+      </div>
 
-  <script type="module" src="main.js"></script>
+    </div>
+
+    <!-- لوحة المؤشرات الحية -->
+    <div class="status-dashboard">
+      <span>Community Immunity: <b>Active (Lvl 5)</b></span>
+      <span>Encryption: <b>AES-256-GCM</b></span>
+    </div>
+  </main>
+
+  <!-- شريط التنقل السفلي -->
+  <nav class="cyber-tab-bar">
+    <div class="tab-icon active" title="Communities">◈</div>
+    <div class="tab-icon" title="Private Encrypted Chats">☲</div>
+    <div class="tab-icon" title="Live Spaces">⬡</div>
+    <div class="tab-icon" title="Reputation Score">⟡</div>
+    <div class="tab-icon" title="Profile">⊙</div>
+  </nav>
+
 </body>
 </html>
