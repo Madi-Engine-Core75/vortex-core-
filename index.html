@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex-Core | Cyber Ecosystem</title>
+  
+  <!-- ربط ملف التصميم السيبراني الموحد -->
+  <link rel="stylesheet" href="./assets/css/madi-cyber-theme.css">
+
+  <!-- كود فحص الأداء التكيفي (Performance Guard) للهواتف الاقتصادية -->
+  <script>
+    (function () {
+      const isLowEndDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+      if (isLowEndDevice) {
+        document.documentElement.classList.add('low-end-mode');
+        const style = document.createElement('style');
+        style.innerHTML = `
+          .cyber-card, .madi-tab-bar {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: #12141c !important;
+          }
+        `;
+        document.head.appendChild(style);
+        console.info("[MadiEngineCore] Low-end device detected: Adaptive UI optimization applied.");
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- حاوية التطبيق الرئيسية -->
+  <div class="madi-app-container">
+    
+    <!-- محتوى الواجهة سيتم إضافته هنا -->
+    <div class="cyber-card">
+      <h2 class="glow-teal">Vortex-Core Active</h2>
+      <p>النظام يعمل بكفاءة تساير معمارية العميل الخفيف.</p>
+    </div>
+
+  </div>
+
+  <!-- شريط التنقل السفلي السيبراني -->
+  <nav class="madi-tab-bar">
+    <span class="glow-teal">⬡ دوائر</span>
+    <span class="glow-teal">💬 محادثات</span>
+    <span class="glow-teal">⚡ مساحات</span>
+    <span class="glow-teal">🛡️ سمعة</span>
+  </nav>
+
+</body>
+</html>
