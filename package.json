@@ -1,12 +1,20 @@
 {
   "name": "vortex-core",
   "version": "1.0.0",
-  "description": "Vortex-Core Social Communication Platform",
-  "main": "src/main.js",
+  "description": "Vortex-Core static client application",
+  "type": "module",
+  "main": "app.js",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "npx http-server ./ -p 8080",
+    "test": "vitest",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write ."
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "eslint": "^8.49.0",
+    "prettier": "^2.8.8",
+    "vitest": "^1.3.0"
+  }
 }
-
