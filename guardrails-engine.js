@@ -5,10 +5,9 @@
 class MadiGuardrailsEngine {
   // مصفوفة التصنيفات والأنماط المحظورة بدقة
   static #bannedCategories = {
-    // 1. المحتوى الهابط والمخالف للفطرة السليمة (شذوذ، إيحاءات، محتوى صريح)
+    // 1. المحتوى الهابط والمخالف للفطرة السليمة
     inappropriate: [
       /\b(nsfw|explicit|porn|adult_content|deviant_behavior_placeholder)\b/i,
-      // يمكن إضافة أنماط لغوية إضافية حسب الحاجة المعيارية
     ],
 
     // 2. العنف، الإرهاب، والأذى الجسدي والنفسي
@@ -29,14 +28,21 @@ class MadiGuardrailsEngine {
 
   /**
    * تطبيع النص وتنظيفه لإحباط محاولات الالتفاف (مثل استخدام الرموز أو المسافات المتباعدة)
+   * يحافظ على حدود الكلمات ويُهيئ العربية والإنجليزية على حد سواء
    * @param {string} text 
    * @returns {string}
    */
   static #normalizeText(text) {
     return text
       .toLowerCase()
-      .replace(/[\s\-_.,?!]/g, '') // إزالة الفواصل والمسافات لشفط محاولات التمويه
-      .normalize('NFKD'); // توحيد الحروف المتشابهة
+      .normalize('NFKD')
+      // إزالة العلامات التشكيلية
+      .replace(/[\u0300-\u036f]/g, '')
+      // إبقاء الحروف (لاتينية وعربية) والأرقام والمساحات
+      .replace(/[^a-z0-9\s\u0600-\u06FF]/g, ' ')
+      // ضم المسافات المتعددة
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 
   /**
@@ -59,8 +65,8 @@ class MadiGuardrailsEngine {
     // فحص المحتوى ضد القواعد القياسية والأنماط المطورة
     for (const [category, patterns] of Object.entries(this.#bannedCategories)) {
       for (const pattern of patterns) {
-        // الفحص على النص الأصلي والنص المطهر كلاً على حدة
-        if (pattern.test(rawContent) || pattern.test(normalized)) {
+        // نفحص على النص الأصلي والنص المطهر مع إضافة مسافات حوله للحفاظ على حدود الكلمات
+        if (pattern.test(rawContent) || pattern.test(` ${normalized} `)) {
           console.warn(`[Guardrails Engine] Violation intercepted. Category: [${category}]`);
           
           return {
