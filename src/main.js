@@ -1,4 +1,4 @@
-import { VirtualScroll } from './virtual-scroll.js';
+import { VirtualScroll } from './ui/virtual-scroll.js';
 
 // مثال على تفعيل العرض التكيفي لقائمة ضخمة تضم 10,000 عنصر دون أي ضغط على الرام
 document.addEventListener('DOMContentLoaded', () => {
