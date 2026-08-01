@@ -2,11 +2,19 @@
   "name": "vortex-core",
   "version": "1.0.0",
   "description": "Vortex-Core Social Communication Platform",
+  "type": "module",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write .",
+    "test": "jest --coverage"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0"
+  }
 }
-
